@@ -12,7 +12,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
 
     globalStream = stream;
     var video = document.querySelector("#self-video");
-    video.muted = true;
+    // video.muted = true;
     video.srcObject = stream;
     video.play();
 
@@ -80,7 +80,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       peer.on("stream", function(stream) {
         console.log("Streaming video");
         var peerVideo = document.querySelector("#peer-video");
-        peerVideo.muted=true;
+        // peerVideo.muted=true;
         peerVideo.srcObject = stream;
         peerVideo.play();
         document.querySelector('#peer-video').style.display='block';
