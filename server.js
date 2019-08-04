@@ -7,30 +7,36 @@ const server = app.listen(port,function(){
     console.log("App running");
 });
 
-const io = socket(server);
 
-app.use(express.static(__dirname + "/public"));
+try{
+    const io = socket(server);
 
-let clients=0;
-
-io.on('connection',function(socket){
-    socket.on("newClient",function(){
-        if(clients<2){
-            if(client==1){
-                this.emit('CreatePeer');
+    app.use(express.static(__dirname + "/public"));
+    
+    let clients=0;
+    
+    io.on('connection',function(socket){
+        socket.on("newClient",function(){
+            if(clients<2){
+                if(client==1){
+                    this.emit('CreatePeer');
+                }
+            }else{
+                this.emit('SessionActive');
             }
-        }else{
-            this.emit('SessionActive');
-        }
-        clients++;
-        console.log("New Client");
-        this.emit('createPeer');
+            clients++;
+            console.log("New Client");
+            this.emit('createPeer');
+        });
+        socket.on('offer',sendOffer);
+        socket.on('answer',sendAnswer);
+        socket.on('disconnect',disconnect);
+    
     });
-    socket.on('offer',sendOffer);
-    socket.on('answer',sendAnswer);
-    socket.on('disconnect',disconnect);
+}catch(err){
+    console.log(err);
+}
 
-});
 
 function disconnect(){
     if(clients>0){
