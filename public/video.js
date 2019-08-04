@@ -1,6 +1,6 @@
 var globalStream;
 var peer;
-const socket = io.connect("localhost:3000");
+const socket = io.connect("https://webrtc-achal.herokuapp.com/");
 let client={};
 
 navigator.mediaDevices
