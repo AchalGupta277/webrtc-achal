@@ -88,7 +88,6 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       });
       return peer;
     }
-
     socket.on("connect", function() {
         console.log("socket connected");
       });
