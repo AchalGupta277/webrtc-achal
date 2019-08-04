@@ -93,8 +93,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
         console.log("socket connected");
       });
     socket.on("createPeer", function() {
-        makePeer();
-        
+        makePeer(); 
     });
     socket.on('backOffer',function(data){
         console.log("Getting an offer from backend");
