@@ -17,16 +17,15 @@ try {
 
   io.on("connection", function(socket) {
     socket.on("newClient", function() {
-    //   if (clients < 2) {
-    //     if (clients == 1) {
-    //       this.emit("CreatePeer");
-    //     }
-    //   } else {
-    //     this.emit("SessionActive");
-    //   }
-    //   clients++;
+      if (clients < 2) {
+        if (clients == 1) {
+          this.emit("createPeer");
+        }
+      } else {
+        this.emit("sessionActive");
+      }
+      clients++;
       console.log("New Client");
-      this.emit("createPeer");
     });
     socket.on("offer", sendOffer);
     socket.on("answer", sendAnswer);

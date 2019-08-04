@@ -106,6 +106,9 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
         console.log("Getting an answer from backend");
         signalAnswer(data);
     });
+    socket.on('sessionActive',function(){
+        document.write('Session already active');
+    });
 
   })
   .catch(err => {
