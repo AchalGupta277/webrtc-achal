@@ -4,7 +4,6 @@ const app = express();
 try {
 
   const socket = require("socket.io");
-
   const port = process.env.PORT || 3000;
   const server = app.listen(port, function() {
     console.log("App running");
@@ -18,14 +17,14 @@ try {
 
   io.on("connection", function(socket) {
     socket.on("newClient", function() {
-      if (clients < 2) {
-        if (client == 1) {
-          this.emit("CreatePeer");
-        }
-      } else {
-        this.emit("SessionActive");
-      }
-      clients++;
+    //   if (clients < 2) {
+    //     if (clients == 1) {
+    //       this.emit("CreatePeer");
+    //     }
+    //   } else {
+    //     this.emit("SessionActive");
+    //   }
+    //   clients++;
       console.log("New Client");
       this.emit("createPeer");
     });

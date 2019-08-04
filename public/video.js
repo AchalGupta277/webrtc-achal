@@ -1,7 +1,9 @@
 var globalStream;
 var peer;
-const socket = io.connect("https://webrtc-achal.herokuapp.com/");
-let client={};
+// const socket = io.connect("https://webrtc-achal.herokuapp.com/");
+// const socket = io.connect(`//${window.location.host}:${window.location.port}`);
+const socket = io.connect(`localhost:3000`);
+var client={};
 
 navigator.mediaDevices.getUserMedia({ video: true, audio: true })
   .then(stream => {
