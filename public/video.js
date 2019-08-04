@@ -3,8 +3,7 @@ var peer;
 const socket = io.connect("https://webrtc-achal.herokuapp.com/");
 let client={};
 
-navigator.mediaDevices
-  .getUserMedia({ video: true, audio: true })
+navigator.mediaDevices.getUserMedia({ video: true, audio: true })
   .then(stream => {
 
     socket.emit("newClient");
