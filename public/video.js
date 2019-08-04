@@ -80,7 +80,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       peer.on("stream", function(stream) {
         console.log("Streaming video");
         var peerVideo = document.querySelector("#peer-video");
-        peerVideo.muted=true;
+        // peerVideo.muted=true;
         peerVideo.srcObject = stream;
         peerVideo.play();
       });
