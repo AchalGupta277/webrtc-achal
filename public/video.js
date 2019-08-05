@@ -65,7 +65,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
         stream: stream,
         trickle: false
       });
-      // peer._debug=console.log;
+      peer._debug=console.log;
       peer.on("error", err => console.log("error", err));
 
       peer.on("connect", () => {
@@ -88,6 +88,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       });
 
       peer.on("close", () => {
+        console.log("Peer destroyed");
         peer.destroy();
       });
       return peer;
